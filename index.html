@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Quiz App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="fas fa-brain"></i>
+        <h1>QuizMaster Pro</h1>
+      </div>
+      <button class="auth-btn" id="login-btn">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+    </header>
+
+    <section class="topic-selection">
+      <label for="topicSelect">Choose your quiz topic:</label>
+      <div class="select-wrapper">
+        <select id="topicSelect">
+          <option value="Geography">Geography</option>
+          <option value="History">History</option>
+          <option value="Science">Science</option>
+          <option value="Current Affairs">Current Affairs</option>
+          <option value="Sports">Sports</option>
+          <option value="Movies">Movies</option>
+          <option value="Cartoons">Cartoons</option>
+          <option value="Coding">Coding</option>
+          <option value="Literature">Literature</option>
+          <option value="Politics">Politics</option>
+          <option value="Technology">Technology</option>
+          <option value="Culture">Culture</option>
+        </select>
+      </div>
+      <button class="start-btn" onclick="startQuiz()">
+        <i class="fas fa-play"></i> Start Quiz
+      </button>
+    </section>
+
+    <section id="quiz-container">
+      <div id="question" class="question"></div>
+      <div id="options" class="options"></div>
+      <div class="quiz-footer">
+        <div id="score">Score: 0</div>
+        <div id="timer"><i class="fas fa-clock"></i> <span id="time">15</span>s</div>
+      </div>
+      <button id="next-btn">
+        Next Question <i class="fas fa-arrow-right"></i>
+      </button>
+    </section>
+
+    <section id="add-question-container">
+      <div class="panel-header">
+        <h2><i class="fas fa-plus-circle"></i> Add New Question</h2>
+        <button class="logout-btn" onclick="adminLogout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+      
+      <div class="form-row">
+        <div class="input-group">
+          <label for="newTopic">Topic</label>
+          <select id="newTopic">
+            <option value="Geography">Geography</option>
+            <option value="History">History</option>
+            <option value="Science">Science</option>
+            <option value="Current Affairs">Current Affairs</option>
+            <option value="Sports">Sports</option>
+            <option value="Movies">Movies</option>
+            <option value="Cartoons">Cartoons</option>
+            <option value="Coding">Coding</option>
+            <option value="Literature">Literature</option>
+            <option value="Politics">Politics</option>
+            <option value="Technology">Technology</option>
+            <option value="Culture">Culture</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <label for="question_en">Question (English)</label>
+        <textarea id="question_en" rows="3" placeholder="Enter question in English"></textarea>
+      </div>
+      
+      <div class="input-group">
+        <label for="question_bn">প্রশ্ন (বাংলায়)</label>
+        <textarea id="question_bn" rows="3" placeholder="প্রশ্ন বাংলায় লিখুন"></textarea>
+      </div>
+      
+      <div class="form-row">
+        <div class="input-group">
+          <label for="opt1">Option 1</label>
+          <input id="opt1" placeholder="Enter option 1">
+        </div>
+        <div class="input-group">
+          <label for="opt2">Option 2</label>
+          <input id="opt2" placeholder="Enter option 2">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="input-group">
+          <label for="opt3">Option 3</label>
+          <input id="opt3" placeholder="Enter option 3">
+        </div>
+        <div class="input-group">
+          <label for="opt4">Option 4</label>
+          <input id="opt4" placeholder="Enter option 4">
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <label for="correctAnswer">Correct Answer</label>
+        <input id="correctAnswer" placeholder="Enter the exact correct option text">
+      </div>
+      
+      <button class="add-btn" onclick="addQuestion()">
+        <i class="fas fa-plus"></i> Add Question
+      </button>
+    </section>
+  </div>
+
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-lock"></i> Admin Login</h2>
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="input-group">
+        <label for="adminUser">Username</label>
+        <input type="text" id="adminUser" placeholder="Enter admin username">
+      </div>
+      <div class="input-group">
+        <label for="adminPass">Password</label>
+        <input type="password" id="adminPass" placeholder="Enter password">
+      </div>
+      <button class="modal-btn login-btn" onclick="adminLogin()">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
